@@ -1,16 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { movies } from '../../store/utils'; // Import your movies data here
 
 const HeroSection = () => {
-  return (
-    <div class="hero-bg bg-no-repeat w-full rounded-xl bg-cover bg-center h-72 sm:h-[500px] flex items-center">
-        <div className='p-4 sm:p-10 sm:w-1/2 text-white'>
-        <p>drama</p>
-            <h1 className='text-3xl sm:text-5xl '>DESPICABLE ME 4</h1>
-            <p>They are back & more despicable than ever</p>
-        </div>
-  </div>
-  
-  )
-}
+    const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
 
-export default HeroSection
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentMovieIndex(prevIndex => (prevIndex + 1) % movies.length);
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    const movie = movies[currentMovieIndex];
+
+    return (
+        <div className="bg-no-repeat w-full rounded-xl bg-cover bg-center h-72 sm:h-[500px] flex items-center transition-opacity duration-500" style={{ backgroundImage: `url(${movie.image})` }}>
+            <div className="p-4 sm:p-10 sm:w-1/2 text-white bg-black bg-opacity-25">
+                <p>{movie.genre}</p>
+                <h1 className="text-3xl sm:text-5xl">{movie.name}</h1>
+                <p>{movie.description}</p>
+            </div>
+        </div>
+    );
+};
+
+export default HeroSection;

@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MovieCard from '../reuseableComponents/MovieCard';
 import { movies } from '../../store/utils';
+import { Link } from 'react-router-dom';
 
 const HotNew = () => {
     const settings = {
@@ -31,7 +32,7 @@ const HotNew = () => {
             {
                 breakpoint: 450,
                 settings: {
-                    slidesToShow: 1, 
+                    slidesToShow: 1,
                     centerMode: true,
                 }
             }
@@ -44,9 +45,9 @@ const HotNew = () => {
             <div className="carousel-container">
                 <Slider {...settings}>
                     {movies.map((movie) => (
-                        <div key={movie.id}>
-                            <MovieCard movie={movie} />
-                        </div>
+                        <Link to={`/movie/${movie.id}`}>
+                            <MovieCard key={movie.id} movie={movie} />
+                        </Link>
                     ))}
                 </Slider>
             </div>

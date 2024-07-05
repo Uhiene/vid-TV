@@ -4,10 +4,10 @@ import SubscriptionPlan from './SubscriptionPlan';
 
 const Subcription = () => {
     return (
-        <div className='mt-14'>
+        <div className='mt-20'>
             <div className='text-center sm:w-1/2 mx-auto my-14'>
-                <h1 className='text-xl sm:text-2xl text-white'>Choose the Subcription pakage that you like & get other benefits</h1>
-                <p className='text-slate-400'>Enjoy various films that we have recommended for you and your family to enjoy</p>
+                <h1 className='text-xl sm:text-3xl text-white'>Choose the Subcription pakage that you like & get other benefits</h1>
+                <p className='text-slate-200'>Enjoy various films that we have recommended for you and your family to enjoy</p>
             </div>
             <div className="grid gap-8 lg:grid-cols-3">
                 {subscriptionPlans.map((plan) => (

@@ -1,7 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.hero-bg {
-    background-image: url('https://silverbirdcinemas.com/wp-content/uploads/2024/06/d3.png');
-}
