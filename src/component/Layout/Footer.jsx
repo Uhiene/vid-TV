@@ -34,7 +34,7 @@ const Footer = () => {
           <p>Phone: +123 456 7890</p>
         </div>
       </div>
-      <div className="flex items-center gap-3 justify-center mt-10">
+      <div className="flex items-center gap-3 sm:justify-center mt-10">
         <img src={siaLogo} alt="" className="w-10 h-10" />
         <p> Powered by Sia Foundation</p>
       </div>
