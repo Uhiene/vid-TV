@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import MoviePlayerPage from "./pages/MoviePlayerPage";
 import CreateMovie from "./pages/CreateMovie";
-import Layout from "./component/Layout/Layout";
+import Layout from "./component/layout/Layout";
 
 function App() {
   return (

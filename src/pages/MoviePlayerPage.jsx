@@ -1,12 +1,13 @@
 import { Link, useParams } from 'react-router-dom'
 import { movies } from '../store/utils'
-import MovieCard from '../component/reuseableComponents/MovieCard'
+import MovieCard from '../component/reuseable/MovieCard'
 import Plyr from 'plyr-react'
 import 'plyr-react/plyr.css'
-import StarRating from '../component/reuseableComponents/StarRating'
+import StarRating from '../component/reuseable/StarRating'
 
 const MoviePlayerPage = () => {
   const { id } = useParams()
+  
   const movie = movies.find((movie) => movie.id === parseInt(id))
   if (!movie) return <div>Movie not found</div>
 

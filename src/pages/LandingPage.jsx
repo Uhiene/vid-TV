@@ -1,6 +1,6 @@
-import HeroSection from "../component/landingPage/HeroSection";
-import HotNew from "../component/landingPage/HotNew";
-import Subcription from "../component/landingPage/Subcription";
+import HeroSection from "../component/home/HeroSection";
+import HotNew from "../component/home/HotNew";
+import Subcription from "../component/home/Subcription";
 
 const LandingPage = () => {
   return (

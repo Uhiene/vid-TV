@@ -1,6 +1,6 @@
 import React from "react";
 import { SiGoogledisplayandvideo360 } from "react-icons/si";
-import HamburgerMenu from "../reuseableComponents/Hamburger";
+import HamburgerMenu from "../reuseable/Hamburger";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {

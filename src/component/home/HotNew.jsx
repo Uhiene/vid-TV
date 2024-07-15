@@ -1,5 +1,5 @@
 import React from 'react'
-import MovieCard from '../reuseableComponents/MovieCard'
+import MovieCard from '../reuseable/MovieCard'
 import { movies } from '../../store/utils'
 import { Link } from 'react-router-dom'
 import 'swiper/css'
