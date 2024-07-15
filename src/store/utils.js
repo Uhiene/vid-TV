@@ -3,9 +3,6 @@ import movie2 from "../assets/movie2.jpg"
 import movie3 from "../assets/movie3.jpg"
 import movie4 from "../assets/movie4.jpg"
 import movie5 from "../assets/movie5.jpg"
-// import movie6 from "../assets/movie6.jpeg"
-// import movie7 from "../assets/movie7.jpeg"
-// import movie8 from "../assets/movie8.jpeg"
 
 export const movies = [
   {
