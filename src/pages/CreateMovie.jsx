@@ -1,41 +1,95 @@
-import React, { useState } from "react";
-import { AiOutlineClose } from "react-icons/ai";
-import { LuPlus } from "react-icons/lu";
+import React, { useState } from 'react'
+import { AiOutlineClose } from 'react-icons/ai'
+import { LuPlus } from 'react-icons/lu'
 
 const CreateMovie = () => {
-  const [videos, setVideos] = useState([]);
+  const [videos, setVideos] = useState([])
   const [movieDetails, setMovieDetails] = useState({
-    name: "",
-    synopsis: "",
-    genres: "",
-  });
+    name: '',
+    synopsis: '',
+    genres: '',
+  })
 
   const handleVideoUpload = (event) => {
-    const files = Array.from(event.target.files);
-    setVideos((prevVideos) => [...prevVideos, ...files]);
-  };
+    const file = event.target.files[0]
+    setVideos([file])
+  }
 
   const handleRemoveVideo = (index) => {
-    setVideos((prevVideos) => prevVideos.filter((_, i) => i !== index));
-  };
+    setVideos([])
+  }
 
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
+    const { name, value } = event.target
     setMovieDetails((prevDetails) => ({
       ...prevDetails,
       [name]: value,
-    }));
-  };
+    }))
+  }
 
   const handleDragOver = (event) => {
-    event.preventDefault();
-  };
+    event.preventDefault()
+  }
 
   const handleDrop = (event) => {
-    event.preventDefault();
-    const files = Array.from(event.dataTransfer.files);
-    setVideos((prevVideos) => [...prevVideos, ...files]);
-  };
+    event.preventDefault()
+    const file = event.dataTransfer.files[0]
+
+    // Check file size
+    if (file.size > 100 * 1024 * 1024) {
+      // 150 MB in bytes
+      alert('File size must be less than 100MB.')
+      return
+    }
+
+    // Check file type
+    if (!file.type.startsWith('video/mp4')) {
+      alert('Only MP4 files are allowed.')
+      return
+    }
+
+    setVideos([file])
+  }
+
+  const handleClickOpenFileExplorer = () => {
+    // Create a hidden file input element
+    const fileInput = document.createElement('input')
+    fileInput.type = 'file'
+    fileInput.accept = '.mp4' // Limit file types to MP4
+    fileInput.style.display = 'none' // Hide the file input
+
+    // Function to handle file selection
+    const handleFileSelection = (event) => {
+      const file = event.target.files[0]
+
+      // Check file size
+      if (file.size > 100 * 1024 * 1024) {
+        // 150 MB in bytes
+        alert('File size must be less than 100MB.')
+        return
+      }
+
+      // Check file type
+      if (!file.type.startsWith('video/mp4')) {
+        alert('Only MP4 files are allowed.')
+        return
+      }
+
+      setVideos([file])
+    }
+
+    // Attach the modified event listener
+    fileInput.onchange = handleFileSelection
+
+    // Append the file input to the body temporarily
+    document.body.appendChild(fileInput)
+    fileInput.click() // Open the file dialog
+
+    // Remove the file input after the dialog is closed
+    fileInput.addEventListener('change', () => {
+      document.body.removeChild(fileInput)
+    })
+  }
 
   return (
     <div className="flex flex-col items-center">
@@ -43,9 +97,12 @@ const CreateMovie = () => {
       <div className="bg-gray-800 bg-opacity-75 border border-slate-500 w-full md:w-2/5 p-4 rounded-xl text-slate-200">
         <div className="flex flex-col items-center justify-center gap-2">
           <div
-            className="flex flex-col items-center border-dashed border-2 border-slate-500 w-full h-40 justify-center rounded-xl"
+            className="flex flex-col items-center border-dashed border-2
+            border-slate-500 w-full h-40 justify-center rounded-xl
+            cursor-pointer hover:border-green-500"
             onDragOver={handleDragOver}
             onDrop={handleDrop}
+            onClick={handleClickOpenFileExplorer}
           >
             <LuPlus className="text-3xl" />
             <p>Upload video</p>
@@ -98,7 +155,8 @@ const CreateMovie = () => {
               <label className="block text-sm font-medium text-slate-200 mb-1">
                 Synopsis
               </label>
-              <textarea
+              <input
+                type="text"
                 name="synopsis"
                 value={movieDetails.synopsis}
                 onChange={handleInputChange}
@@ -125,7 +183,7 @@ const CreateMovie = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CreateMovie;
+export default CreateMovie
