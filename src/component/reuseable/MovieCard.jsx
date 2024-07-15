@@ -6,7 +6,7 @@ const MovieCard = ({ movie, width = 'w-52', height = 'h-96' }) => {
 
   return (
     <div
-      className={`relative ${width} ${height} overflow-hidden rounded-2xl
+      className={`relative ${width} ${height} overflow-hidden
       transform transition-transform duration-500 hover:rotate-y-180 group`}
     >
       <img
@@ -16,7 +16,8 @@ const MovieCard = ({ movie, width = 'w-52', height = 'h-96' }) => {
       />
       <div
         className="absolute inset-0 bg-black bg-opacity-75 text-white p-4
-      opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform rotate-y-180"
+      opacity-0 group-hover:opacity-100 transform 
+      rotate-y-180 transition duration-300 ease-in-out"
       >
         <div className="flex items-center justify-end space-x-2 mb-2">
           <StarRating rating={rating} />

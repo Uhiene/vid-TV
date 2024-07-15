@@ -27,6 +27,7 @@ const HotNew = () => {
             clickable: true,
           }}
           navigation={false}
+          loop={true}
           modules={[Autoplay, Pagination, Navigation]}
           className="w-2/3 overflow-hidden"
           breakpoints={{

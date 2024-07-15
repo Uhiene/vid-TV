@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import LandingPage from "./pages/LandingPage";
-import MoviePlayerPage from "./pages/MoviePlayerPage";
+import Home from "./pages/Home";
+import Movie from "./pages/Movie";
 import CreateMovie from "./pages/CreateMovie";
 import Layout from "./component/layout/Layout";
 
@@ -8,9 +8,9 @@ function App() {
   return (
     <Layout>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<Home />} />
         <Route path="/create" element={<CreateMovie />} />
-        <Route path="/movie/:id" element={<MoviePlayerPage />} />
+        <Route path="/movie/:id" element={<Movie />} />
       </Routes>
     </Layout>
   );

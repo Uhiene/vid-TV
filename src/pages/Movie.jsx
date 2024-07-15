@@ -5,9 +5,9 @@ import Plyr from 'plyr-react'
 import 'plyr-react/plyr.css'
 import StarRating from '../component/reuseable/StarRating'
 
-const MoviePlayerPage = () => {
+const Page = () => {
   const { id } = useParams()
-  
+
   const movie = movies.find((movie) => movie.id === parseInt(id))
   if (!movie) return <div>Movie not found</div>
 
@@ -38,7 +38,7 @@ const MoviePlayerPage = () => {
           <ul className="flex flex-col gap-5">
             {movies.map((movie) => (
               <Link to={`/movie/${movie.id}`} key={movie.id}>
-                <MovieCard movie={movie} width="w-full" height="h-40" />
+                <MovieCard movie={movie} width="w-full rounded-2xl" height="h-40" />
               </Link>
             ))}
           </ul>
@@ -48,4 +48,4 @@ const MoviePlayerPage = () => {
   )
 }
 
-export default MoviePlayerPage
+export default Page

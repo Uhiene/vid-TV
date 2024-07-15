@@ -1,11 +1,11 @@
-import HeroSection from "../component/home/HeroSection";
+import Banner from "../component/home/Banner";
 import HotNew from "../component/home/HotNew";
 import Subcription from "../component/home/Subcription";
 
 const LandingPage = () => {
   return (
     <>
-      <HeroSection />
+      <Banner />
       <HotNew />
       <Subcription />
     </>
