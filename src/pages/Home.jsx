@@ -1,15 +1,29 @@
-import Banner from "../component/home/Banner";
-import HotNew from "../component/home/HotNew";
-import Subcription from "../component/home/Subcription";
+'use client'
+import React, { useEffect, useState } from 'react'
+import Banners from '../components/home/Banners'
+import Posters from '../components/home/Posters'
+import Subscriptions from '../components/home/Subscriptions'
+import { posters } from '../data/posters'
 
-const LandingPage = () => {
+const Home = () => {
+  const [movies, setMovies] = useState([])
+
+  useEffect(() => {
+    const fetchMoviesData = async () => {
+      const moviesData = posters
+      setMovies(moviesData)
+    }
+
+    fetchMoviesData()
+  }, [])
+
   return (
     <>
-      <Banner />
-      <HotNew />
-      <Subcription />
+      <Banners />
+      <Posters movies={movies} />
+      <Subscriptions />
     </>
-  );
-};
+  )
+}
 
-export default LandingPage;
+export default Home

@@ -1,18 +1,17 @@
+'use client'
 import React from 'react'
-import MovieCard from '../reuseable/MovieCard'
-import { movies } from '../../store/utils'
-import { Link } from 'react-router-dom'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import { SwiperSlide, Swiper } from 'swiper/react'
 import { Autoplay, Pagination, Navigation } from 'swiper'
+import MovieCard from '../shared/MovieCard'
 
-const HotNew = () => {
+const Posters = ({ movies }) => {
   return (
     <div className="mt-10 lg:mt-20">
       <h1 className="text-white text-xl lg:text-3xl font-semibold text-center mb-5">
-        Hot New
+        {movies.length > 0 ? 'Hot New' : 'No Movies Yet...'}
       </h1>
 
       <div className="carousel-container">
@@ -45,17 +44,20 @@ const HotNew = () => {
             },
           }}
         >
-          {movies.map((movie, i) => (
-            <SwiperSlide key={i}>
-              <Link to={`/movie/${movie.id}`}>
-                <MovieCard key={movie.id} movie={movie} />
-              </Link>
-            </SwiperSlide>
-          ))}
+          {movies.length > 0 &&
+            movies.map((movie, i) => (
+              <SwiperSlide key={i}>
+                <MovieCard
+                  width="w-52 rounded-2xl"
+                  key={movie.id}
+                  movie={movie}
+                />
+              </SwiperSlide>
+            ))}
         </Swiper>
       </div>
     </div>
   )
 }
 
-export default HotNew
+export default Posters

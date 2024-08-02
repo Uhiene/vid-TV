@@ -1,7 +1,7 @@
-import React from "react";
-import { SiGoogledisplayandvideo360 } from "react-icons/si";
-import { Link } from "react-router-dom";
-import siaLogo from "../../assets/siacoin.svg";
+import React from 'react'
+import { SiGoogledisplayandvideo360 } from 'react-icons/si'
+import siaLogo from '../../assets/siacoin.svg'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -15,7 +15,8 @@ const Footer = () => {
             <h1 className=" font-semibold ">VidTV</h1>
           </Link>
           <p className="text-sm">
-            A project showcasing the power of decentralized storage in video streaming.
+            A project showcasing the power of decentralized storage in video
+            streaming.
           </p>
         </div>
         <div>
@@ -25,7 +26,7 @@ const Footer = () => {
             <li>Movies</li>
             <li>Series</li>
             <li>Anime</li>
-            <li>Shows</li>
+            <Link to="/account">Account</Link>
           </ul>
         </div>
         <div>
@@ -35,11 +36,11 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex items-center gap-3 sm:justify-center mt-10">
-        <img src={siaLogo} alt="" className="w-10 h-10" />
+        <img src={siaLogo} alt="" width={40} height={40} />
         <p> Powered by Sia Foundation</p>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
