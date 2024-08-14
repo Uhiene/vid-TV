@@ -1,8 +1,8 @@
-import movie1 from '../assets/4.png'
-import movie2 from '../assets/5.png'
-import movie3 from '../assets/6.png'
-import movie4 from '../assets/7.png'
-import movie5 from '../assets/8.png'
+import movie1 from '../assets/1.png'
+import movie2 from '../assets/2.png'
+import movie3 from '../assets/3.png'
+import movie4 from '../assets/4.png'
+import movie5 from '../assets/5.png'
 
 export const banners = [
   {
